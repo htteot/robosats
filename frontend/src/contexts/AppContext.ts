@@ -331,7 +331,7 @@ export const useAppStore = () => {
   }: fetchRobotProps): void {
     const token = newToken ?? robot.token ?? '';
     const hash_id = sha256(sha256(token));
-
+    
     const nickname = generate_roboname(hash_id);
     robohash.generate(hash_id, 'small');
     robohash.generate(hash_id, 'large');
@@ -369,6 +369,14 @@ export const useAppStore = () => {
     apiClient
       .get(baseUrl, '/api/robot/', auth)
       .then((data: any) => {
+<<<<<<< HEAD
+=======
+        // TODO remove when using hash_id as robohash
+        robohash.generate(data.nickname, 'small');
+        robohash.generate(data.nickname, 'large');
+        // END TODO
+
+>>>>>>> 59064efe (Add robot hash_id field)
         const newRobot = {
           avatarLoaded: isRefresh ? robot.avatarLoaded : false,
           nickname,
