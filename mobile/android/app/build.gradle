@@ -1,7 +1,16 @@
 apply plugin: "com.android.application"
 apply plugin: "com.facebook.react"
+apply plugin: "org.mozilla.rust-android-gradle.rust-android"
 
 import com.android.build.OutputFile
+
+cargo {
+    module  = "../../rust_module"
+    libname = "rust_module"
+    targets = ["arm", "arm64", "x86", "x86_64"]
+    profile = "release"
+    targetIncludes = ['librust_module.so']
+}
 
 /**
  * The react.gradle file registers a task for each build variant (e.g. bundleDebugJsAndAssets
