@@ -7,6 +7,9 @@ import NetInfo from '@react-native-community/netinfo';
 import EncryptedStorage from 'react-native-encrypted-storage';
 import { name as app_name, version as app_version } from './package.json';
 
+import RustModule from './rust_module';
+console.log(RustModule.add_two(5, 8));
+
 const backgroundColors = {
   light: 'white',
   dark: 'black',
