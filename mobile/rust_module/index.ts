@@ -1,5 +1,5 @@
-import { NativeModules } from 'react-native';
+import { NativeModule } from 'react-native';
 
-const { rust_module } = NativeModules;
+const { arch, run } = NativeModule;
 
-export default rust_module;
+export { arch, run };
